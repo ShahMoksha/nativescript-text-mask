@@ -1,0 +1,26 @@
+{
+  "name": "demo-vue",
+  "main": "main.js",
+  "version": "1.0.0",
+  "description": "A native application built with NativeScript-Vue",
+  "author": "raj@ashutec.com",
+  "license": "MIT",
+  "dependencies": {
+    "@nativescript/core": "^8.0.4",
+    "nativescript-masked-text-field": "file:../bin/dist",
+    "nativescript-vue": "^2.9.0",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@nativescript/android": "8.0.0",
+    "@nativescript/ios": "7.2.0",
+    "@nativescript/webpack": "^4.1.0",
+    "babel-loader": "^8.1.0",
+    "nativescript-vue-template-compiler": "^2.8.1",
+    "nativescript-worker-loader": "~0.12.1",
+    "sass": "^1.26.10",
+    "vue-loader": "^15.9.3"
+  }
+}

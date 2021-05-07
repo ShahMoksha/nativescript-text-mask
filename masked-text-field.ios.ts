@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ***************************************************************************** */
-import { getTransformedText } from "ui/text-base";
+import { getTransformedText } from "@nativescript/core/ui/text-base";
 
 import { MaskedTextFieldBase, textProperty } from "./masked-text-field-common";
 
@@ -43,14 +43,14 @@ export class MaskedTextField extends MaskedTextFieldBase {
             case "none":
                 break;
             case "underline":
-                dict.set(NSUnderlineStyleAttributeName, NSUnderlineStyle.StyleSingle);
+                dict.set(NSUnderlineStyleAttributeName, NSUnderlineStyle.Single);
                 break;
             case "line-through":
-                dict.set(NSStrikethroughStyleAttributeName, NSUnderlineStyle.StyleSingle);
+                dict.set(NSStrikethroughStyleAttributeName, NSUnderlineStyle.Single);
                 break;
             case "underline line-through":
-                dict.set(NSUnderlineStyleAttributeName, NSUnderlineStyle.StyleSingle);
-                dict.set(NSStrikethroughStyleAttributeName, NSUnderlineStyle.StyleSingle);
+                dict.set(NSUnderlineStyleAttributeName, NSUnderlineStyle.Single);
+                dict.set(NSStrikethroughStyleAttributeName, NSUnderlineStyle.Single);
                 break;
             default:
                 throw new Error(`Invalid text decoration value: ${style.textDecoration}. Valid values are: 'none', 'underline', 'line-through', 'underline line-through'.`);

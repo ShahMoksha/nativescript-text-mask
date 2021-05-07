@@ -51,9 +51,9 @@
             tsCompile: {
                 cmd: "./node_modules/.bin/tsc --project tsconfig.json --outDir " + localConfig.outDir
             },
-            ngCompile: {
-                cmd: "node ./node_modules/.bin/ngc --project tsconfig.aot.json --outDir " + localConfig.outDir
-            },
+            // ngCompile: {
+            //     cmd: "node ./node_modules/.bin/ngc --project tsconfig.aot.json --outDir " + localConfig.outDir
+            // },
             tslint: {
                 cmd: "./node_modules/.bin/tslint --project tsconfig.json --type-check"
             },
@@ -95,7 +95,7 @@
     grunt.registerTask("compile", [
         "clean:build",
         "exec:tsCompile",
-        "exec:ngCompile",
+        // "exec:ngCompile",
         "copy"
     ]);
 

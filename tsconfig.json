@@ -6,15 +6,20 @@
         "removeComments": true,
         "declaration": false,
         "experimentalDecorators": true,
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES2017",
+        "module": "esnext",
+        "moduleResolution": "node",
         "outDir": "bin/dist",
         "lib": ["es6", "dom"],
+        "skipLibCheck": true,
+		"skipDefaultLibCheck": true,
         "rootDir": ".",
         "baseUrl": ".",
+        "types": [
+            "node"
+        ],
         "paths": {
             "*": [
-            "./node_modules/tns-core-modules/*",
             "./node_modules/*"
             ]
         }

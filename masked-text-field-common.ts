@@ -13,14 +13,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ***************************************************************************** */
-import { CSSType, CoercibleProperty, Property } from "ui/core/view";
-import { TextField } from "ui/text-field";
-
+import { CSSType, CoercibleProperty, Property } from "@nativescript/core/ui/core/view";
+import { TextField } from "@nativescript/core/ui/text-field";
+  
 import { MaskedTextField as MaskedTextFieldDefinition } from ".";
 
-export * from "ui/text-field";
+export * from "@nativescript/core/ui/text-field";
 
-// Dummy interface to allow call of private function in TextField
+// // Dummy interface to allow call of private function in TextField
 export interface MaskedTextFieldBase {
     _setInputType(inputType: number): void;
 }
@@ -154,7 +154,7 @@ export abstract class MaskedTextFieldBase extends TextField implements MaskedTex
         return currentValueSplit.join("");        
     }
 
-    protected abstract _setNativeText(value: string);
+    public abstract _setNativeText(value: any);
 
     private _getNextRegExpToken(start: number, isBackwardsIn?: boolean) {
         const step = (isBackwardsIn ? -1 : 1);
@@ -173,6 +173,7 @@ export const maskProperty = new Property<MaskedTextFieldBase, string>({
     name: "mask",
     defaultValue: "",
     valueChanged: (target, oldValue, newValue) => {
+        console.log(target);
         target._generateMaskTokens();
     }
 });
