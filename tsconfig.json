@@ -10,7 +10,7 @@
         "module": "esnext",
         "moduleResolution": "node",
         "outDir": "bin/dist",
-        "lib": ["es6", "dom"],
+        "lib": ["es2017", "dom"],
         "skipLibCheck": true,
 		"skipDefaultLibCheck": true,
         "rootDir": ".",

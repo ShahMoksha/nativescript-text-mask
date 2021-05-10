@@ -21,8 +21,8 @@
     "url": "https://github.com/PeterStaev/nativescript-masked-text-field"
   },
   "scripts": {
-    "demo-ios": "grunt build && cd demo && tns run ios",
-    "demo-android": "grunt build && cd demo && tns run android",
+    "demo-ios": "grunt build && cd demo-vue && tns run ios",
+    "demo-android": "grunt build && cd demo-vue && tns run android",
     "demo-ng-ios": "grunt build && cd demo-ng && tns run ios",
     "demo-ng-android": "grunt build && cd demo-ng && tns run android"
   },
@@ -51,6 +51,7 @@
     "typescript": "^3.9.9"
   },
   "dependencies": {
+    "@nativescript/core": "^8.0.5",
     "@nativescript/types": "^8.0.1"
   }
 }

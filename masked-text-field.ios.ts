@@ -25,6 +25,7 @@ export class MaskedTextField extends MaskedTextFieldBase {
     public initNativeView() {
         super.initNativeView(); // NOTE: This initializes this._delegate!
         this._delegate = MaskedTextFieldDelegate.initWithOwnerAndDefaultImplementation(new WeakRef(this), this._delegate);
+        console.log(this._delegate, "DELEGATE");
     }
 
     public [textProperty.getDefault]() {
@@ -32,12 +33,13 @@ export class MaskedTextField extends MaskedTextFieldBase {
     }
 
     public [textProperty.setNative](value: string) {
+        console.log(value, "===========");
         this._setNativeText(value);
     }
 
     public _setNativeText(value: string) {
         const style = this.style;
-
+        console.log(this.style, "STYLE");
         const dict = new Map<string, any>();
         switch (style.textDecoration) {
             case "none":
@@ -79,6 +81,7 @@ export class MaskedTextField extends MaskedTextFieldBase {
         }
     }
 }
+// @NativeClass
 @ObjCClass(UITextFieldDelegate)
 class MaskedTextFieldDelegate extends NSObject implements UITextFieldDelegate {
     public static initWithOwnerAndDefaultImplementation(owner: WeakRef<MaskedTextField>, defaultImplementation: UITextFieldDelegate): MaskedTextFieldDelegate {
@@ -105,7 +108,7 @@ class MaskedTextFieldDelegate extends NSObject implements UITextFieldDelegate {
     }
 
     public textFieldShouldClear(textField: UITextField): boolean {
-       return  this._defaultImplementation.textFieldShouldClear(textField);
+        return this._defaultImplementation.textFieldShouldClear(textField);
     }
 
     public textFieldShouldReturn(textField: UITextField): boolean {
@@ -116,8 +119,8 @@ class MaskedTextFieldDelegate extends NSObject implements UITextFieldDelegate {
         const owner = this._owner.get();
         const isBackwardsIn: boolean = (replacementString === "");
         const newCaretPositionNumber = owner._updateMaskedText(range.location, range.length, replacementString, isBackwardsIn);
-        
-        const caretPosition = textField.positionFromPositionOffset(textField.beginningOfDocument, newCaretPositionNumber);        
+
+        const caretPosition = textField.positionFromPositionOffset(textField.beginningOfDocument, newCaretPositionNumber);
         textField.selectedTextRange = textField.textRangeFromPositionToPosition(caretPosition, caretPosition);
 
         return false; // Always return false as we change the text ourselves, so no automatic change should happen. 
